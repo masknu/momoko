@@ -979,6 +979,9 @@ class Connection(object):
         """
         if self.connection:
             self.connection.close()
+            #if self.current_future:
+            #    self.current_future.set_exception(psycopg2.OperationalError("database connection disconnected"))
+            #    self.current_future = None
 
 
 def connect(*args, **kwargs):
